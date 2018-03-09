@@ -1,0 +1,12 @@
+services:
+    one_signal_api.config:
+        class: OneSignal\Config
+        calls:
+            - [setApplicationId, [%one_signal_api.app_id%]]
+            - [setApplicationAuthKey, [%one_signal_api.app_auth_key%]]
+            - [setUserAuthKey, [%one_signal_api.user_auth_key%]]
+
+    one_signal_api.service:
+        class: OneSignal\OneSignal
+        arguments:
+            - '@one_signal_api.config'
