@@ -1,6 +1,6 @@
 <?php
 
-namespace samiaraboglu\OneSignalApiBundle\DependencyInjection;
+namespace Samiax\OneSignalApiBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

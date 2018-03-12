@@ -1,6 +1,6 @@
 <?php
 
-namespace samiaraboglu\OneSignalApiBundle;
+namespace Samiax\OneSignalApiBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

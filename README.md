@@ -20,7 +20,7 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             // ...
-            new samiaraboglu\OneSignalApiBundle\OneSignalApiBundle(),
+            new Samiax\OneSignalApiBundle\OneSignalApiBundle(),
         );
         // ...
     }
