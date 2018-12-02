@@ -13,8 +13,9 @@
     ],
     "require": {
         "php": ">=5.5",
-        "symfony/framework-bundle": "~3.0",
-        "norkunas/onesignal-php-api": "^0.1"
+        "symfony/framework-bundle": "^3.0|^4.0",
+        "php-http/guzzle6-adapter": "^1.0",
+        "norkunas/onesignal-php-api": "^1.0"
     },
     "require-dev": {
 
