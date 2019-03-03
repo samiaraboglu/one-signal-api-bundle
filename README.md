@@ -20,7 +20,7 @@ class AppKernel extends Kernel
     {
         $bundles = array(
             // ...
-            new Samiax\OneSignalApiBundle\OneSignalApiBundle(),
+            new Samiax\OneSignalApiBundle\SamiaxOneSignalApiBundle(),
         );
         // ...
     }
@@ -32,17 +32,17 @@ class AppKernel extends Kernel
 Add this to config.yml:
 
 ```yaml
-one_signal_api:
-    app_id:         %one_signal_api_app_id%
-    app_auth_key:   %one_signal_api_app_auth_key%
-    user_auth_key:  %one_signal_api_user_auth_key%
+samiax_one_signal_api:
+    app_id:         "{ONE_SIGNAL_API_APP_ID}"
+    app_auth_key:   "{ONE_SIGNAL_API_APP_AUTH_KEY}"
+    user_auth_key:  "{ONE_SIGNAL_API_USER_AUTH_KEY}"
 ```
 
 ### Basic Use
 Gets all apps:
 
 ```php
-$service = $this->get('one_signal_api.service');
+$service = $this->get('samiax_one_signal_api.service');
 
 $myApps = $service->apps->getAll();
 ```

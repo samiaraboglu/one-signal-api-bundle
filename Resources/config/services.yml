@@ -1,12 +1,30 @@
 services:
-    one_signal_api.config:
+    samiax_one_signal_api.guzzle:
+        class: GuzzleHttp\Client
+
+    samiax_one_signal_api.guzzle_message_factory:
+        class: Http\Message\MessageFactory\GuzzleMessageFactory
+
+    samiax_one_signal_api.guzzle_adapter:
+        class: Http\Adapter\Guzzle6\Client
+        arguments:
+            - '@samiax_one_signal_api.guzzle'
+
+    samiax_one_signal_api.http_client:
+        class: Http\Client\Common\HttpMethodsClient
+        arguments:
+            - '@samiax_one_signal_api.guzzle_adapter'
+            - '@samiax_one_signal_api.guzzle_message_factory'
+
+    samiax_one_signal_api.config:
         class: OneSignal\Config
         calls:
-            - [setApplicationId, [%one_signal_api.app_id%]]
-            - [setApplicationAuthKey, [%one_signal_api.app_auth_key%]]
-            - [setUserAuthKey, [%one_signal_api.user_auth_key%]]
+            - [setApplicationId, ['%samiax_one_signal_api.app_id%']]
+            - [setApplicationAuthKey, ['%samiax_one_signal_api.app_auth_key%']]
+            - [setUserAuthKey, ['%samiax_one_signal_api.user_auth_key%']]
 
-    one_signal_api.service:
+    samiax_one_signal_api.service:
         class: OneSignal\OneSignal
         arguments:
-            - '@one_signal_api.config'
+            - '@samiax_one_signal_api.config'
+            - '@samiax_one_signal_api.http_client'
